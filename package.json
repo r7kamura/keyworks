@@ -1,27 +1,17 @@
 {
-  "name": "keyworks",
-  "version": "0.0.1",
-  "author": "Ryo Nakamura",
-  "bugs": {
-    "url": "https://github.com/r7kamura/keyworks/issues"
-  },
   "devDependencies": {
     "fixpack": "^2.3.1"
   },
   "engines": {
     "node": ">= 6.1.0"
   },
-  "homepage": "https://github.com/r7kamura/keyworks",
   "keywords": [
     "Keyboard",
     "Shortcuts"
   ],
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/r7kamura/keyworks"
-  },
+  "private": true,
   "scripts": {
-    "lint": "fixpack"
+    "lint": "fixpack && fixpack src/manifest.json"
   }
 }
