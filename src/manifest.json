@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "author": "Ryo Nakamura",
   "default_locale": "en",
+  "homepage_url": "https://github.com/r7kamura/keyworks",
   "icons": {
     "16": "images/icon16.png",
     "48": "images/icon48.png",
