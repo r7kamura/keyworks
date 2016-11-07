@@ -3,7 +3,8 @@
     "fixpack": "^2.3.1"
   },
   "engines": {
-    "node": ">= 6.1.0"
+    "node": ">= 6.1.0",
+    "yarn": "0.16.1"
   },
   "keywords": [
     "Keyboard",
@@ -12,6 +13,15 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "lint": "fixpack && fixpack src/manifest.json"
+    "build": "webpack --config webpack.config.js --display-error-details",
+    "lint": "fixpack && fixpack src/manifest.json",
+    "watch": "webpack --config webpack.config.js --watch"
+  },
+  "dependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-3": "^6.17.0",
+    "webpack": "^1.13.3"
   }
 }

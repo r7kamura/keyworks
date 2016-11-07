@@ -3,6 +3,19 @@
   "description": "__MSG_applicationDescription__",
   "version": "0.0.1",
   "author": "Ryo Nakamura",
+  "content_scripts": [
+    {
+      "all_frames": false,
+      "js": [
+        "javascripts/content-script.js"
+      ],
+      "matches": [
+        "https://*/*",
+        "http://*/*"
+      ],
+      "run_at": "document_end"
+    }
+  ],
   "default_locale": "en",
   "homepage_url": "https://github.com/r7kamura/keyworks",
   "icons": {
