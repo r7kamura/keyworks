@@ -1,0 +1,105 @@
+.form {
+  &-button {
+    float: right;
+  }
+
+  &-control {
+    -webkit-appearance: none;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
+    border-top: 0;
+    display: block;
+    font-size: inherit;
+    height: 36px;
+    line-height: 1.4;
+    resize: vertical;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    width: 100%;
+
+    &,
+    &:active,
+    &:focus,
+    &:hover {
+      outline: none;
+    }
+
+
+    &[type] {
+      height: 2em;
+    }
+
+    &:focus {
+      border-bottom-color: #2196f3;
+    }
+  }
+
+  &-group {
+    margin-bottom: 32px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-horizontal-element {
+    margin-bottom: 12px;
+  }
+
+  &-label {
+    color: $color-text-dark-primary;
+    display: block;
+    font-size: 80%;
+    margin-bottom: 0.5em;
+  }
+
+  &-note {
+    color: $color-text-dark-hint;
+    display: block;
+    font-size: 80%;
+    margin-top: 0.6em;
+  }
+
+  &-radio {
+    cursor: pointer;
+    display: block;
+
+    & + & {
+      margin-top: 8px;
+    }
+
+    &-button {
+      float: left;
+      margin-right: 12px;
+      margin-top: 6px;
+    }
+
+    &-description {
+      color: $color-text-dark-secondary;
+      font-size: 80%;
+    }
+
+    &-main {
+      overflow: hidden;
+    }
+  }
+
+  &-select-container {
+    position: relative;
+
+    &::before {
+      content: "▼";
+      font-family: FontAwesome;
+      line-height: 36px;
+      position: absolute;
+      right: 16px;
+      top: 0;
+    }
+  }
+}
+
+textarea.form-control {
+  height: auto;
+}

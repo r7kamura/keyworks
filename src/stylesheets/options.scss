@@ -1,4 +1,8 @@
 @import "~node-reset-scss/scss/reset";
+@import "./variables";
+@import "./blocks/button";
+@import "./blocks/form";
+@import "./blocks/table";
 
 $width-screen-small-minimum: 767px;
 
@@ -13,6 +17,22 @@ body {
   font-size: 17px;
   line-height: 1.7;
   word-wrap: break-word;
+}
+
+kbd {
+  background-color: #f7f7f7;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+  color: #333;
+  display: inline-block;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 11px;
+  line-height: 1.4;
+  margin: 0 0.1em;
+  padding: 0.1em 0.6em;
+  text-shadow: 0 1px 0 #fff;
+  white-space: nowrap;
 }
 
 .card {
@@ -47,8 +67,7 @@ body {
   }
 
   &-heading {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.2rem;
     line-height: 1;
     margin-bottom: 4px;
   }
@@ -60,6 +79,12 @@ body {
   max-width: 1000px;
   padding-left: 8px;
   padding-right: 8px;
+}
+
+.footer {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 0.9rem;
+  text-align: center;
 }
 
 .header {
@@ -76,36 +101,6 @@ body {
   padding-top: 32px;
 }
 
-.list-group {
-  .card-header + & {
-    margin-top: -24px;
-  }
-
-  &-element {
-    border-top: 1px solid #eee;
-    display: block;
-    line-height: 1.7;
-    padding: 16px 24px;
-    position: relative;
-
-    &,
-    &:active,
-    &:focus,
-    &:hover {
-      color: rgba(0, 0, 0, 0.87);
-    }
-
-    &:first-child {
-      border-top: 0;
-    }
-
-    &-footer {
-      color: rgba(0, 0, 0, 0.54);
-      font-size: 0.8rem;
-    }
-
-    &-navigation {
-      text-align: center;
-    }
-  }
+.cursor-pointer {
+  cursor: pointer;
 }
