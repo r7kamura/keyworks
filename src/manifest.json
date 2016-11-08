@@ -10,7 +10,6 @@
   },
   "content_scripts": [
     {
-      "all_frames": false,
       "js": [
         "javascripts/content.js"
       ],
@@ -18,21 +17,20 @@
         "https://*/*",
         "http://*/*"
       ],
-      "run_at": "document_end"
+      "run_at": "document_start"
     }
   ],
   "default_locale": "en",
   "homepage_url": "https://github.com/r7kamura/keyworks",
   "icons": {
     "16": "images/icon16.png",
+    "19": "images/icon19.png",
     "48": "images/icon48.png",
     "128": "images/icon128.png"
   },
   "manifest_version": 2,
   "permissions": [
-    "clipboardRead",
-    "https://*/*",
-    "http://*/*"
+    "clipboardRead"
   ],
   "short_name": "Keyworks"
 }
