@@ -1,3 +1,6 @@
+import { copyToClipboard } from "./lib/clipboard.js";
+import { format } from "./lib/template.js";
+
 const getActionDefinitionsTable = () => {
   return {
     "Ctrl+L": {
@@ -29,25 +32,17 @@ class CopyToClipboardAction extends Action {
   }
 
   run({ title, url }) {
-    const string = this.format({ title, url });
-    this.copyToClipboard(string);
+    copyToClipboard(
+      format(
+        this.template,
+        {
+          title,
+          url,
+        }
+      )
+    );
   }
 
-  copyToClipboard (string) {
-    const textarea = document.createElement("textarea");
-    textarea.style.cssText = "position: absolute; left: -100%";
-    document.body.appendChild(textarea);
-    textarea.value = string;
-    textarea.select();
-    document.execCommand("copy");
-    document.body.removeChild(textarea);
-  }
-
-  format(variables) {
-    return Object.keys(variables).reduce((result, variableName) => {
-      return result.replace("${" + variableName  + "}", variables[variableName]);
-    }, this.template);
-  }
 }
 
 chrome.runtime.onMessage.addListener(({ keyString, title, url }) => {
