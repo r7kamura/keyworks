@@ -3,11 +3,16 @@
   "description": "__MSG_applicationDescription__",
   "version": "0.0.1",
   "author": "Ryo Nakamura",
+  "background": {
+    "scripts": [
+      "javascripts/background.js"
+    ]
+  },
   "content_scripts": [
     {
       "all_frames": false,
       "js": [
-        "javascripts/content-script.js"
+        "javascripts/content.js"
       ],
       "matches": [
         "https://*/*",
@@ -25,6 +30,7 @@
   },
   "manifest_version": 2,
   "permissions": [
+    "clipboardRead",
     "https://*/*",
     "http://*/*"
   ],
