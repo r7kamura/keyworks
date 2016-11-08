@@ -14,7 +14,7 @@ getSettings().then((settings) => {
     const keyString = detectKeyString(event);
     const actionDefinition = settings.actionDefinitions[keyString];
     if (actionDefinition) {
-      new actions[actionDefinitions.type]().run();
+      new actions[actionDefinition.type](actionDefinition).run();
     }
   });
 });

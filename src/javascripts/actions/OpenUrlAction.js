@@ -4,6 +4,6 @@ export default class OpenUrlAction extends Action {
   static hasValue = true;
 
   run() {
-    window.open(this.value);
+    location.href = this.value;
   }
 }
