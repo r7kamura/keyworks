@@ -25,6 +25,7 @@
     "build:copy": "cp -r ./src/{images,_locales,manifest.json} ./dist",
     "build:webpack": "webpack --config webpack.config.js --display-error-details",
     "lint": "fixpack && fixpack src/manifest.json",
+    "test": "yarn run lint && yarn run build",
     "watch": "webpack --config webpack.config.js --watch"
   }
 }
