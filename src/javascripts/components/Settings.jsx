@@ -94,7 +94,7 @@ export default class Settings extends React.Component {
                     <tr>
                       <th>Key</th>
                       <th>Action</th>
-                      <th>Data</th>
+                      <th>Template</th>
                       <th>Delete</th>
                     </tr>
                   </thead>
@@ -142,7 +142,7 @@ export default class Settings extends React.Component {
                         <div className="form-label">
                           Template
                         </div>
-                        <input type="text" className="form-control" value={this.state.template} onChange={(event) => { this.setState({ template: event.target.value }) }}/>
+                        <textarea className="form-control" value={this.state.template} onChange={(event) => { this.setState({ template: event.target.value }) }}/>
                       </label>
                       <div className="form-note">
                         {"${title} and ${url} variables are available."}
