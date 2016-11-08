@@ -12,7 +12,7 @@ chrome.runtime.onMessage.addListener(({ keyString, title, url }) => {
   getSettings().then((settings) => {
     const actionDefinition = settings.actionDefinitions[keyString];
     switch (actionDefinition.type) {
-    case "CopyToClipboardAction":
+    case "CopyToClipboard":
       new CopyToClipboardAction(actionDefinition).run({ title, url });
     }
   });
@@ -23,11 +23,11 @@ chrome.runtime.onInstalled.addListener(() => {
     actionDefinitions: {
       "Ctrl+L": {
         template: "${title} ${url}",
-        type: "CopyToClipboardAction",
+        type: "CopyToClipboard",
       },
       "Ctrl+M": {
         template: "[${title}](${url})",
-        type: "CopyToClipboardAction",
+        type: "CopyToClipboard",
       },
     },
   };

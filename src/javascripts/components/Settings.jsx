@@ -30,7 +30,7 @@ export default class Settings extends React.Component {
   constructor() {
     super();
     this.state = {
-      actionType: "CopyToClipboardAction",
+      actionType: "CopyToClipboard",
       keyString: "",
       template: "",
       settings: { actionDefinitions: {} },
@@ -126,7 +126,7 @@ export default class Settings extends React.Component {
                         <div className="form-label">
                           Key
                         </div>
-                        <input type="text" onKeyDown={this.onKeyDown.bind(this)} value={this.state.keyString} className="form-control"/>
+                        <input type="text" onKeyDown={this.onKeyDown.bind(this)} value={this.state.keyString} className="form-control" required/>
                       </label>
                     </div>
                     <div className="form-group">
@@ -135,7 +135,7 @@ export default class Settings extends React.Component {
                           Action
                         </div>
                         <div className="form-select-container">
-                          <select className="form-control" value={this.state.actionType}>
+                          <select className="form-control" value={this.state.actionType} required>
                             <option value="CopyToClipboardAction">Copy to clipboard</option>
                           </select>
                         </div>
