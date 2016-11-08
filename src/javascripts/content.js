@@ -1,5 +1,7 @@
 import { detectKeyString } from "key-string";
 import CopyToClipboardAction from "./lib/CopyToClipboardAction";
+import GoBackAction from "./lib/GoBackAction";
+import GoForwardAction from "./lib/GoForwardAction";
 import ScrollDownAction from "./lib/ScrollDownAction";
 import ScrollUpAction from "./lib/ScrollUpAction";
 
@@ -19,6 +21,12 @@ getSettings().then((settings) => {
       switch (actionDefinition.type) {
       case "CopyToClipboard":
         new CopyToClipboardAction(actionDefinition).run();
+        break;
+      case "GoBack":
+        new GoBackAction(actionDefinition).run();
+        break;
+      case "GoForward":
+        new GoForwardAction(actionDefinition).run();
         break;
       case "ScrollDown":
         new ScrollDownAction(actionDefinition).run();

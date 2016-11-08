@@ -135,6 +135,8 @@ export default class Settings extends React.Component {
                             {
                               [
                                 "CopyToClipboard",
+                                "GoBack",
+                                "GoForward",
                                 "ScrollDown",
                                 "ScrollUp",
                               ].map((actionType) => {
