@@ -86,11 +86,9 @@ export default class Settings extends React.Component {
         <header className="header">
           <div className="section">
             <div className="container">
-              <div className="card-transparent">
                 <h1 className="header-heading">
                   Keyworks settings
                 </h1>
-              </div>
             </div>
           </div>
         </header>
@@ -99,14 +97,6 @@ export default class Settings extends React.Component {
             <div className="container">
               <section className="card">
                 <table className="table">
-                  <thead>
-                    <tr>
-                      <th>Key</th>
-                      <th>Action</th>
-                      <th>Template</th>
-                      <th>Delete</th>
-                    </tr>
-                  </thead>
                   <tbody>
                     {
                       Object.keys(this.state.settings.actionDefinitions).map((keyString) => {

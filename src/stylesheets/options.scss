@@ -11,7 +11,7 @@ $width-screen-small-minimum: 767px;
 }
 
 body {
-  background-color: #eee;
+  background-color: #f4f4f4;
   color: rgba(0, 0, 0, 0.87);
   font-family: "Noto Sans Japanese", YuGothic, "メイリオ", meiryo, sans-serif;
   font-size: 17px;
@@ -88,8 +88,8 @@ kbd {
 }
 
 .header {
-  background-color: #666;
-  color: #fff;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 
   &-heading {
     font-size: 24px;
