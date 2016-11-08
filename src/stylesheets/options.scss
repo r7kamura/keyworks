@@ -1,13 +1,57 @@
+@import "~node-reset-scss/scss/reset";
+
+$width-screen-small-minimum: 767px;
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  color: rgba(0, 0, 0, .87);
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, "Noto Sans Japanese", YuGothic, "メイリオ", meiryo, sans-serif;
+  background-color: #eee;
+  color: rgba(0, 0, 0, 0.87);
+  font-family: "Noto Sans Japanese", YuGothic, "メイリオ", meiryo, sans-serif;
   font-size: 17px;
   line-height: 1.7;
   word-wrap: break-word;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  margin-bottom: 24px;
+
+  &-body,
+  &-footer,
+  &-header,
+  &-transparent {
+    padding: 24px 16px;
+
+    @media (min-width: $width-screen-small-minimum) {
+      padding: 32px;
+    }
+  }
+
+  &-body + &-body,
+  &-header + &-body {
+    padding-top: 0;
+  }
+
+  &-body + &-footer {
+    padding-top: 0;
+  }
+
+  &-description {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 0.9rem;
+  }
+
+  &-heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
 }
 
 .container {
@@ -16,4 +60,52 @@ body {
   max-width: 1000px;
   padding-left: 8px;
   padding-right: 8px;
+}
+
+.header {
+  background-color: #666;
+  color: #fff;
+
+  &-heading {
+    font-size: 24px;
+  }
+}
+
+.section {
+  padding-bottom: 32px;
+  padding-top: 32px;
+}
+
+.list-group {
+  .card-header + & {
+    margin-top: -24px;
+  }
+
+  &-element {
+    border-top: 1px solid #eee;
+    display: block;
+    line-height: 1.7;
+    padding: 16px 24px;
+    position: relative;
+
+    &,
+    &:active,
+    &:focus,
+    &:hover {
+      color: rgba(0, 0, 0, 0.87);
+    }
+
+    &:first-child {
+      border-top: 0;
+    }
+
+    &-footer {
+      color: rgba(0, 0, 0, 0.54);
+      font-size: 0.8rem;
+    }
+
+    &-navigation {
+      text-align: center;
+    }
+  }
 }

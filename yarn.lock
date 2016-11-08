@@ -2447,6 +2447,10 @@ node-pre-gyp@^0.6.29:
     tar "~2.2.1"
     tar-pack "~3.3.0"
 
+node-reset-scss:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/node-reset-scss/-/node-reset-scss-1.0.1.tgz#980b63cc7a48b2519cca81074ae22deeb8736ba2"
+
 node-sass:
   version "3.11.2"
   resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-3.11.2.tgz#ba3bef8cd46bd1698c2bdb2b6d2af1f9e7d7878f"
