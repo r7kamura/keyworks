@@ -1,6 +1,6 @@
 import { detectKeyString } from "key-string";
 
-const formatWithVariables = (string) => {
+const format = (string) => {
   const variablesObject = getVariablesObject();
   return Object.keys(variablesObject).reduce((result, variableName) => {
     return result.replace("${" + variableName  + "}", variablesObject[variableName])
@@ -9,16 +9,16 @@ const formatWithVariables = (string) => {
 
 const getVariablesObject = () => {
   return {
-    title: getPageTitle(),
-    url: getPageUrl(),
+    title: getTitle(),
+    url: getUrl(),
   };
 };
 
-const getPageTitle = () => {
+const getTitle = () => {
   return document.title;
 };
 
-const getPageUrl = () => {
+const getUrl = () => {
   return location.href;
 };
 
@@ -34,11 +34,11 @@ window.addEventListener("keydown", (event) => {
   const keyString = detectKeyString(event);
   if (keyString === "Ctrl+M") {
     sendMessage({
-      string: formatWithVariables("[${title}](${url})"),
+      string: format("[${title}](${url})"),
     });
   } else if (keyString === "Ctrl+L") {
     sendMessage({
-      string: formatWithVariables("${title} ${url}"),
+      string: format("${title} ${url}"),
     });
   }
 });
