@@ -1,25 +1,32 @@
 import { detectKeyString } from "key-string";
+import CopyToClipboardAction from "./lib/CopyToClipboardAction";
+import ScrollDownAction from "./lib/ScrollDownAction";
+import ScrollUpAction from "./lib/ScrollUpAction";
 
-const getTitle = () => {
-  return document.title;
+const getSettings = () => {
+  return new Promise((resolve) => {
+    chrome.storage.sync.get("settings", ({ settings }) => {
+      resolve(settings);
+    });
+  });
 };
 
-const getUrl = () => {
-  return location.href;
-};
-
-const sendMessage = (message) => {
-  chrome.runtime.sendMessage(
-    chrome.runtime.id,
-    message,
-    {}
-  );
-};
-
-window.addEventListener("keydown", (event) => {
-  sendMessage({
-    keyString: detectKeyString(event),
-    title: getTitle(),
-    url: getUrl(),
+getSettings().then((settings) => {
+  window.addEventListener("keydown", (event) => {
+    const keyString = detectKeyString(event);
+    const actionDefinition = settings.actionDefinitions[keyString];
+    if (actionDefinition) {
+      switch (actionDefinition.type) {
+      case "CopyToClipboard":
+        new CopyToClipboardAction(actionDefinition).run();
+        break;
+      case "ScrollDown":
+        new ScrollDownAction(actionDefinition).run();
+        break;
+      case "ScrollUp":
+        new ScrollUpAction(actionDefinition).run();
+        break;
+      }
+    }
   });
 });

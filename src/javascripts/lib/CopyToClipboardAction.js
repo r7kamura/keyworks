@@ -1,6 +1,6 @@
-import { copyToClipboard } from "../lib/clipboard.js";
-import { format } from "../lib/template.js";
-import Action from "../lib/Action.js";
+import { copyToClipboard } from "../lib/clipboard";
+import { format } from "../lib/template";
+import Action from "../lib/Action";
 
 export default class CopyToClipboardAction extends Action {
   constructor({ template }) {
@@ -8,13 +8,13 @@ export default class CopyToClipboardAction extends Action {
     this.template = template;
   }
 
-  run({ title, url }) {
+  run() {
     copyToClipboard(
       format(
         this.template,
         {
-          title,
-          url,
+          title: document.title,
+          url: location.href,
         }
       )
     );

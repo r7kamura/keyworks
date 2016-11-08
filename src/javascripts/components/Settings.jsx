@@ -135,8 +135,20 @@ export default class Settings extends React.Component {
                           Action
                         </div>
                         <div className="form-select-container">
-                          <select className="form-control" value={this.state.actionType} required>
-                            <option value="CopyToClipboardAction">Copy to clipboard</option>
+                          <select className="form-control" value={this.state.actionType} onChange={(event) => { this.setState({ actionType: event.target.value }); }} required>
+                            {
+                              [
+                                "CopyToClipboard",
+                                "ScrollDown",
+                                "ScrollUp",
+                              ].map((actionType) => {
+                                return(
+                                  <option value={actionType}>
+                                    {actionType}
+                                  </option>
+                                );
+                              })
+                            }
                           </select>
                         </div>
                       </label>
