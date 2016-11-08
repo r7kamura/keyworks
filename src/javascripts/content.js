@@ -1,5 +1,19 @@
 import { detectKeyString } from "key-string";
 
+const formatWithVariables = (string) => {
+  const variablesObject = getVariablesObject();
+  return Object.keys(variablesObject).reduce((result, variableName) => {
+    return result.replace("${" + variableName  + "}", variablesObject[variableName])
+  }, string);
+};
+
+const getVariablesObject = () => {
+  return {
+    title: getPageTitle(),
+    url: getPageUrl(),
+  };
+};
+
 const getPageTitle = () => {
   return document.title;
 };
@@ -20,11 +34,11 @@ window.addEventListener("keydown", (event) => {
   const keyString = detectKeyString(event);
   if (keyString === "Ctrl+M") {
     sendMessage({
-      string: `[${getPageTitle()}](${getPageUrl()})`,
+      string: formatWithVariables("[${title}](${url})"),
     });
   } else if (keyString === "Ctrl+L") {
     sendMessage({
-      string: `${getPageTitle()} ${getPageUrl()}`,
+      string: formatWithVariables("${title} ${url}"),
     });
   }
 });
