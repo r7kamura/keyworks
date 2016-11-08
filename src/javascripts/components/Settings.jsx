@@ -2,6 +2,10 @@ import { detectKeyString } from "key-string";
 import React from "react";
 
 class Action extends React.Component {
+  onDeleteButtonClick() {
+    this.props.onDeleteButtonClick(this.props.keyString);
+  }
+
   render() {
     return(
       <tr>
@@ -15,7 +19,7 @@ class Action extends React.Component {
           {this.props.actionDefinition.template}
         </td>
         <td>
-          <span onClick={() => { this.props.onDeleteButtonClick(this.props.keyString) }} className="cursor-pointer">×</span>
+          <span onClick={this.onDeleteButtonClick.bind(this)} className="cursor-pointer">×</span>
         </td>
       </tr>
     );
@@ -142,7 +146,7 @@ export default class Settings extends React.Component {
                         <div className="form-label">
                           Template
                         </div>
-                        <textarea className="form-control" value={this.state.template} onChange={(event) => { this.setState({ template: event.target.value }) }}/>
+                        <textarea className="form-control" value={this.state.template} onChange={(event) => { this.setState({ template: event.target.value }); }}/>
                       </label>
                       <div className="form-note">
                         {"${title} and ${url} variables are available."}
