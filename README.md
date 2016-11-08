@@ -4,4 +4,4 @@
 
 A web browser extension to customize keyboard shortcuts.
 
-![image](/src/images/icon-original.png)
+https://chrome.google.com/webstore/detail/keyworks/chmkmpahmlgaaincbbdfnplohkkkapdl
