@@ -4,13 +4,14 @@ const config = {
   entry: {
     background: "./src/javascripts/background.js",
     content: "./src/javascripts/content.js",
-    options: "./src/javascripts/options.js"
+    options: "./src/javascripts/options.jsx"
   },
   module: {
     loaders: [
       {
+        exclude: /node_modules/,
+        loader: "babel-loader",
         test: /\.jsx?$/,
-        loader: "babel-loader", exclude: /node_modules/,
       },
     ],
   },
@@ -29,6 +30,7 @@ const config = {
   resolve: {
     extensions: [
       "",
+      ".js",
     ]
   }
 };
