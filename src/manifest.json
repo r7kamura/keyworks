@@ -38,7 +38,8 @@
   },
   "manifest_version": 2,
   "permissions": [
-    "clipboardRead"
+    "clipboardRead",
+    "storage"
   ],
   "short_name": "Keyworks"
 }
