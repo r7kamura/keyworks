@@ -141,6 +141,7 @@ export default class Settings extends React.Component {
                         </div>
                         <div className="form-select-container">
                           <select className="form-control" value={this.state.actionType} onChange={(event) => { this.setState({ actionType: event.target.value }); }} required>
+                            <option value=""></option>
                             {
                               [
                                 "CopyToClipboard",
@@ -158,17 +159,19 @@ export default class Settings extends React.Component {
                         </div>
                       </label>
                     </div>
-                    <div className="form-group">
-                      <label>
-                        <div className="form-label">
-                          Template
+                    { this.state.actionType === "CopyToClipboard" &&
+                      <div className="form-group">
+                        <label>
+                          <div className="form-label">
+                            Template
+                          </div>
+                          <textarea className="form-control" value={this.state.template} onChange={(event) => { this.setState({ template: event.target.value }); }} required/>
+                        </label>
+                        <div className="form-note">
+                          {"${title} and ${url} variables are available."}
                         </div>
-                        <textarea className="form-control" value={this.state.template} onChange={(event) => { this.setState({ template: event.target.value }); }}/>
-                      </label>
-                      <div className="form-note">
-                        {"${title} and ${url} variables are available."}
                       </div>
-                    </div>
+                    }
                     <div className="form-group">
                       <input className="button button-primary" type="submit" value="Add"/>
                     </div>
