@@ -1,7 +1,7 @@
 {
   "name": "Keyworks",
   "description": "__MSG_applicationDescription__",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Ryo Nakamura",
   "background": {
     "persistent": false,
