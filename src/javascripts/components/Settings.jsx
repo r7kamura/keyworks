@@ -161,13 +161,6 @@ export default class Settings extends React.Component {
             </div>
           </div>
         </main>
-        <footer className="footer">
-          <div className="section">
-            <div className="container">
-              © 2016 Ryo Nakamura
-            </div>
-          </div>
-        </footer>
       </div>
     );
   }
