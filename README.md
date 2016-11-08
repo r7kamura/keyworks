@@ -6,4 +6,4 @@ A web browser extension to customize keyboard shortcuts.
 
 https://chrome.google.com/webstore/detail/keyworks/chmkmpahmlgaaincbbdfnplohkkkapdl
 
-![image](/src/images/screebshot-1280x800.png)
+![image](/src/images/screenshot.png)
