@@ -1,4 +1,4 @@
-import Action from "../lib/Action";
+import Action from "../actions/Action";
 
 export default class ScrollDownAction extends Action {
   run() {

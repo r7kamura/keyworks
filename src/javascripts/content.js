@@ -1,9 +1,5 @@
 import { detectKeyString } from "key-string";
-import CopyToClipboardAction from "./lib/CopyToClipboardAction";
-import GoBackAction from "./lib/GoBackAction";
-import GoForwardAction from "./lib/GoForwardAction";
-import ScrollDownAction from "./lib/ScrollDownAction";
-import ScrollUpAction from "./lib/ScrollUpAction";
+import actions from "./actions";
 
 const getSettings = () => {
   return new Promise((resolve) => {
@@ -18,23 +14,7 @@ getSettings().then((settings) => {
     const keyString = detectKeyString(event);
     const actionDefinition = settings.actionDefinitions[keyString];
     if (actionDefinition) {
-      switch (actionDefinition.type) {
-      case "CopyToClipboard":
-        new CopyToClipboardAction(actionDefinition).run();
-        break;
-      case "GoBack":
-        new GoBackAction(actionDefinition).run();
-        break;
-      case "GoForward":
-        new GoForwardAction(actionDefinition).run();
-        break;
-      case "ScrollDown":
-        new ScrollDownAction(actionDefinition).run();
-        break;
-      case "ScrollUp":
-        new ScrollUpAction(actionDefinition).run();
-        break;
-      }
+      new actions[actionDefinitions.type]().run();
     }
   });
 });

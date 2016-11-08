@@ -1,4 +1,5 @@
 import { detectKeyString } from "key-string";
+import actions from "../actions";
 import React from "react";
 
 class Action extends React.Component {
@@ -16,7 +17,7 @@ class Action extends React.Component {
           {this.props.actionDefinition.type}
         </td>
         <td>
-          {this.props.actionDefinition.template}
+          {this.props.actionDefinition.value}
         </td>
         <td>
           <span onClick={this.onDeleteButtonClick.bind(this)} className="cursor-pointer">×</span>
@@ -45,7 +46,7 @@ export default class Settings extends React.Component {
       settings: {
         actionDefinitions: {},
       },
-      template: "",
+      value: "",
     };
   }
 
@@ -68,7 +69,7 @@ export default class Settings extends React.Component {
       actionDefinitions: {
         ...this.state.settings.actionDefinitions,
         [this.state.keyString]: {
-          template: this.state.template,
+          value: this.state.value,
           type: this.state.actionType,
         },
       },
@@ -133,13 +134,7 @@ export default class Settings extends React.Component {
                           <select className="form-control" value={this.state.actionType} onChange={(event) => { this.setState({ actionType: event.target.value }); }} required>
                             <option value=""></option>
                             {
-                              [
-                                "CopyToClipboard",
-                                "GoBack",
-                                "GoForward",
-                                "ScrollDown",
-                                "ScrollUp",
-                              ].map((actionType) => {
+                              Object.keys(actions).map((actionType) => {
                                 return(
                                   <option value={actionType}>
                                     {actionType}
@@ -151,13 +146,13 @@ export default class Settings extends React.Component {
                         </div>
                       </label>
                     </div>
-                    { this.state.actionType === "CopyToClipboard" &&
+                    { actions[this.state.actionType] && actions[this.state.actionType].hasValue &&
                       <div className="form-group">
                         <label>
                           <div className="form-label">
-                            Template
+                            value
                           </div>
-                          <textarea className="form-control" value={this.state.template} onChange={(event) => { this.setState({ template: event.target.value }); }} required/>
+                          <textarea className="form-control" value={this.state.value} onChange={(event) => { this.setState({ value: event.target.value }); }} required/>
                         </label>
                         <div className="form-note">
                           {"${title} and ${url} variables are available."}
