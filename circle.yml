@@ -10,4 +10,4 @@ dependencies:
     - yarn install
 test:
   override:
-    - npm run test
+    - yarn run test
