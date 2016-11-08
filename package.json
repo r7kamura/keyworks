@@ -25,7 +25,7 @@
   "scripts": {
     "build": "yarn run build:clean && yarn run build:copy && yarn run build:webpack",
     "build:clean": "rm -rf ./dist || true && mkdir -p ./dist",
-    "build:copy": "cp -r ./src/images ./src/_locales ./src/manifest.json ./dist",
+    "build:copy": "cp -r ./src/_locales ./src/html ./src/images ./src/manifest.json ./dist",
     "build:webpack": "webpack --config webpack.config.js --display-error-details",
     "lint": "yarn run lint:eslint && yarn run lint:fixpack",
     "lint:eslint": "eslint 'src/**/*.{js,jsx}'",

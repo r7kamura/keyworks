@@ -42,7 +42,6 @@ class CopyToClipboardAction extends Action {
       )
     );
   }
-
 }
 
 chrome.runtime.onMessage.addListener(({ keyString, title, url }) => {
