@@ -7,22 +7,8 @@ export default class Settings extends React.Component {
   }
 
   componentDidMount() {
-    const defaultSettings = {
-      actionDefinitions: {
-        "Ctrl+L": {
-          template: "${title} ${url}",
-          type: "CopyToClipboardAction",
-        },
-        "Ctrl+M": {
-          template: "[${title}](${url})",
-          type: "CopyToClipboardAction",
-        },
-      },
-    };
-    chrome.storage.sync.set({ settings: defaultSettings }, () => {
-      chrome.storage.sync.get("settings", ({ settings }) => {
-        this.setState({ settings });
-      });
+    chrome.storage.sync.get("settings", ({ settings }) => {
+      this.setState({ settings });
     });
   }
 
