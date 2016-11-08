@@ -1,5 +1,4 @@
-import { copyToClipboard } from "./lib/clipboard.js";
-import { format } from "./lib/template.js";
+import CopyToClipboardAction from "./lib/CopyToClipboardAction.js";
 
 const getActionDefinitionsTable = () => {
   return {
@@ -14,40 +13,11 @@ const getActionDefinitionsTable = () => {
   };
 };
 
-class Action {
-  static create(definition) {
-    switch (definition.type) {
-    case "CopyToClipboardAction":
-      return new CopyToClipboardAction(definition);
-    }
-  }
-
-  run() {}
-}
-
-class CopyToClipboardAction extends Action {
-  constructor({ template }) {
-    super();
-    this.template = template;
-  }
-
-  run({ title, url }) {
-    copyToClipboard(
-      format(
-        this.template,
-        {
-          title,
-          url,
-        }
-      )
-    );
-  }
-}
-
 chrome.runtime.onMessage.addListener(({ keyString, title, url }) => {
   const actionDefinitionsTable = getActionDefinitionsTable();
   const actionDefinition = actionDefinitionsTable[keyString];
-  if (actionDefinition) {
-    Action.create(actionDefinition).run({ title, url });
+  switch (actionDefinition.type) {
+  case "CopyToClipboardAction":
+    new CopyToClipboardAction(actionDefinition).run({ title, url });
   }
 });
