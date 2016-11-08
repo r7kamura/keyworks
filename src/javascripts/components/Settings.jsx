@@ -17,9 +17,18 @@ export default class Settings extends React.Component {
       <div className="container">
         {
           Object.keys(this.state.settings.actionDefinitions).map((keyString) => {
+            const definition = this.state.settings.actionDefinitions[keyString];
             return(
               <div key={keyString}>
-                {keyString}
+                <div>
+                  {keyString}
+                </div>
+                <div>
+                  {definition.type}
+                </div>
+                <div>
+                  {definition.template}
+                </div>
               </div>
             );
           })

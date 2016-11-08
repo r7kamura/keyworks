@@ -1,3 +1,5 @@
+const autoprefixer = require("autoprefixer");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpack = require("webpack");
 
 const config = {
@@ -13,13 +15,18 @@ const config = {
         loader: "babel-loader",
         test: /\.jsx?$/,
       },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!sass-loader")
+      },
     ],
   },
   output: {
     filename: "[name].js",
-    path: "./dist/javascripts",
+    path: "./dist/assets",
   },
   plugins: [
+    new ExtractTextPlugin("[name].css"),
     new webpack.DefinePlugin({
       "process.env": {
          NODE_ENV: JSON.stringify("production")
@@ -32,12 +39,16 @@ const config = {
       }
     }),
   ],
+  postcss: [
+    autoprefixer,
+  ],
   resolve: {
     extensions: [
       "",
       ".js",
+      ".scss",
     ]
-  }
+  },
 };
 
 module.exports = config;
