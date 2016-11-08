@@ -46,6 +46,7 @@ const config = {
     extensions: [
       "",
       ".js",
+      ".jsx",
       ".scss",
     ]
   },
