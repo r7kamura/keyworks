@@ -3,7 +3,8 @@ const webpack = require("webpack");
 const config = {
   entry: {
     background: "./src/javascripts/background.js",
-    content: "./src/javascripts/content.js"
+    content: "./src/javascripts/content.js",
+    options: "./src/javascripts/options.js"
   },
   module: {
     loaders: [
