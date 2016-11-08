@@ -29,18 +29,24 @@ class Action extends React.Component {
 export default class Settings extends React.Component {
   constructor() {
     super();
-    this.state = {
-      actionType: "CopyToClipboard",
-      keyString: "",
-      template: "",
-      settings: { actionDefinitions: {} },
-    };
+    this.state = this.getInitialState();
   }
 
   componentDidMount() {
     chrome.storage.sync.get("settings", ({ settings }) => {
       this.setState({ settings });
     });
+  }
+
+  getInitialState() {
+    return {
+      actionType: "",
+      keyString: "",
+      settings: {
+        actionDefinitions: {},
+      },
+      template: "",
+    };
   }
 
   onDeleteButtonClick(keyString) {
@@ -50,9 +56,10 @@ export default class Settings extends React.Component {
   }
 
   onKeyDown(event) {
-    this.setState({
-      keyString: detectKeyString(event)
-    });
+    const keyString = detectKeyString(event);
+    if (!keyString.includes("Unknown")) {
+      this.setState({ keyString });
+    }
   }
 
   onSubmit(event) {
@@ -67,10 +74,8 @@ export default class Settings extends React.Component {
       },
     };
     this.setState({
+      ...this.getInitialState(),
       settings,
-      actionType: "CopyToClipboardAction",
-      keyString: "",
-      template: "",
     });
     chrome.storage.sync.set({ settings });
   }
